@@ -270,50 +270,50 @@ int main(void){
     cout << "------> CalculatorFunction <-------" << endl;
     CalculatorFunction MyCalculator;
 
-        // Test: Basic Addition
-        string rpn_expression1 = "3 4 +";
-        int rpn_result1 = MyCalculator.evaluate_rpn(rpn_expression1);
-        cout << "RPN Result 1 For Expression \"3 4 +\": " << rpn_result1 << endl; // Should output 7
+    // Test: Basic Addition
+    string rpn_expression1 = "3 4 +";
+    int rpn_result1 = MyCalculator.evaluate_rpn(rpn_expression1);
+    cout << "RPN Result 1 For Expression \"3 4 +\": " << rpn_result1 << endl; // Should output 7
         
-        // Test: Basic Subtraction
-        string rpn_expression2 = "7 2 -";
-        int rpn_result2 = MyCalculator.evaluate_rpn(rpn_expression2);
-        cout << "RPN Result 2 For Expression \"7 2 -\": " << rpn_result2 << endl; // Should output 5
+    // Test: Basic Subtraction
+    string rpn_expression2 = "7 2 -";
+    int rpn_result2 = MyCalculator.evaluate_rpn(rpn_expression2);
+    cout << "RPN Result 2 For Expression \"7 2 -\": " << rpn_result2 << endl; // Should output 5
         
-        // Test: Multiplication
-        string rpn_expression3 = "3 5 *";
-        int rpn_result3 = MyCalculator.evaluate_rpn(rpn_expression3);
-        cout << "RPN Result 3 For Expression \"3 5 *\": " << rpn_result3 << endl; // Should output 15
+    // Test: Multiplication
+    string rpn_expression3 = "3 5 *";
+    int rpn_result3 = MyCalculator.evaluate_rpn(rpn_expression3);
+    cout << "RPN Result 3 For Expression \"3 5 *\": " << rpn_result3 << endl; // Should output 15
         
-        // Test: Division
-        string rpn_expression4 = "10 2 /";
-        int rpn_result4 = MyCalculator.evaluate_rpn(rpn_expression4);
-        cout << "RPN Result 4 For Expression \"10 2 /\": " << rpn_result4 << endl; // Should output 5
+    // Test: Division
+    string rpn_expression4 = "10 2 /";
+    int rpn_result4 = MyCalculator.evaluate_rpn(rpn_expression4);
+    cout << "RPN Result 4 For Expression \"10 2 /\": " << rpn_result4 << endl; // Should output 5
         
-        // Test: Multiple Operations
-        string rpn_expression5 = "3 4 + 2 *";
-        int rpn_result5 = MyCalculator.evaluate_rpn(rpn_expression5);
-        cout << "RPN Result 5 For Expression \"3 4 + 2 *\": " << rpn_result5 << endl; // Should output 14
+    // Test: Multiple Operations
+    string rpn_expression5 = "3 4 + 2 *";
+    int rpn_result5 = MyCalculator.evaluate_rpn(rpn_expression5);
+    cout << "RPN Result 5 For Expression \"3 4 + 2 *\": " << rpn_result5 << endl; // Should output 14
         
-        // Test: Negative Numbers
-        string rpn_expression6 = "-3 4 +";
-        int rpn_result6 = MyCalculator.evaluate_rpn(rpn_expression6);
-        cout << "RPN Result 6 For Expression \"-3 4 +\": " << rpn_result6 << endl; // Should output 1
+    // Test: Negative Numbers
+    string rpn_expression6 = "-3 4 +";
+    int rpn_result6 = MyCalculator.evaluate_rpn(rpn_expression6);
+    cout << "RPN Result 6 For Expression \"-3 4 +\": " << rpn_result6 << endl; // Should output 1
         
-        // Test: Simple Infix Expression
-        string infix_expression1 = "3 + 2 * 5";
-        int infix_result1 = MyCalculator.evaluate_infix(infix_expression1);
-        cout << "Infix Result 1 For Expression \"3 + 2 * 5\": " << infix_result1 << endl; // Should output 13
+    // Test: Simple Infix Expression
+    string infix_expression1 = "3 + 2 * 5";
+    int infix_result1 = MyCalculator.evaluate_infix(infix_expression1);
+    cout << "Infix Result 1 For Expression \"3 + 2 * 5\": " << infix_result1 << endl; // Should output 13
     
-        // Test: Complex Infix Expression
-        string infix_expression2 = "3 + 4 * 2 / (1 - 5)^2^3";
-        int infix_result2 = MyCalculator.evaluate_infix(infix_expression2);
-        cout << "Infix Result 2 For Expression \"3 + 4 * 2 / (1 - 5)^2^3\": " << infix_result2 << endl; // Should output 3
+    // Test: Complex Infix Expression
+    string infix_expression2 = "3 + 4 * 2 / (1 - 5)^2^3";
+    int infix_result2 = MyCalculator.evaluate_infix(infix_expression2);
+    cout << "Infix Result 2 For Expression \"3 + 4 * 2 / (1 - 5)^2^3\": " << infix_result2 << endl; // Should output 3
         
-        // Test: Nested Parentheses Infix Expression
-        string infix_expression3 = "(1 + 2) * (3 + 4)";
-        int infix_result3 = MyCalculator.evaluate_infix(infix_expression3);
-        cout << "Infix Result 3 For Expression \"(1 + 2) * (3 + 4)\": " << infix_result3 << endl; // Should output 21    
+    // Test: Nested Parentheses Infix Expression
+    string infix_expression3 = "(1 + 2) * (3 + 4)";
+    int infix_result3 = MyCalculator.evaluate_infix(infix_expression3);
+    cout << "Infix Result 3 For Expression \"(1 + 2) * (3 + 4)\": " << infix_result3 << endl; // Should output 21    
 
     return 0;
 }
