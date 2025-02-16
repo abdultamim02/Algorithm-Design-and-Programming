@@ -1,4 +1,5 @@
 #include <iostream>
+#pragma once
 
 using namespace std;
 
@@ -40,7 +41,8 @@ class MyStackArrayType{
         int pop(){
             // If stack is empty, print underflow error
             if (is_empty()){
-                cout << "Stack Underflow" << endl;
+                cout << "Stack Underflow ";
+                return -1;
             }
             return array[topIndex--];       // return element at topIndex then decrement topIndex
         }
@@ -49,7 +51,7 @@ class MyStackArrayType{
         int top(){
             // If stack is empty, print underflow error
             if (is_empty()){
-                cout << "Stack Underflow" << endl;
+                cout << "Stack Underflow ";
                 return -1;
             }
             return array[topIndex];
@@ -84,13 +86,13 @@ class MyStackArrayType{
 };
 
 // Node class representing each element in the stack
-class Node{
+class StackNode{
     public:
         int data;       // Holds data value
-        Node* next;     // Pointer to new node
+        StackNode* next;     // Pointer to new node
 
         // Constructor for initialization
-        Node(int initialData, Node* nextNode = nullptr){
+        StackNode(int initialData, StackNode* nextNode = nullptr){
             data = initialData;
             next = nextNode;
         }
@@ -98,7 +100,7 @@ class Node{
 
 class MyStackLinkedListType{
     private:
-        Node* head;     // Pointer to the head (too) element of the stack
+        StackNode* head;     // Pointer to the head (too) element of the stack
         int count;      // Counter to count number of element in the stack
 
     public:
@@ -110,7 +112,7 @@ class MyStackLinkedListType{
 
         // Push method to push an element into the stack
         void push(int data){
-            Node* newNode = new Node(data, head);       // Create new node and pass data and next pointer
+            StackNode* newNode = new StackNode(data, head);       // Create new node and pass data and next pointer
             head = newNode;                         // Update head to the new node
             count++;                            // Increment counter
         }
@@ -119,10 +121,11 @@ class MyStackLinkedListType{
         int pop(){
             // If stack is empty, print underflow error
             if (is_empty()){
-                cout << "Stack Underflow" << endl;
+                cout << "Stack Underflow ";
+                return -1;
             }
             int value = head->data;     // Save the head data value
-            Node* temp = head;          // Store top element
+            StackNode* temp = head;          // Store top element
             head = head->next;          // Move head (top) element to next element
             delete temp;                // Free memory for top element
             count--;                    // Decrement counter
@@ -138,7 +141,8 @@ class MyStackLinkedListType{
         int top(){
             // If stack is empty, print underflow error
             if (is_empty()){
-                cout << "Stack Underflow" << endl;
+                cout << "Stack Underflow ";
+                return -1;
             }
             return head->data;
         }
@@ -150,7 +154,7 @@ class MyStackLinkedListType{
 
         // Print Stack to print the stack elemnts
         void PrintStack(){
-            Node* temp = head;
+            StackNode* temp = head;
             cout << "Stack: [";
             while (temp){
                 cout << temp->data;

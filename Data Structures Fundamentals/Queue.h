@@ -1,4 +1,5 @@
 #include <iostream>
+#pragma once
 
 using namespace std;
 
@@ -56,7 +57,7 @@ class MyQueueArrayType{
         int dequeue(){
             // If queue is empty, print underflow error
             if (is_empty()){
-                cout << "Queue Underflow" << endl;
+                cout << "Queue Underflow ";
                 return -1;
             }
             
@@ -79,7 +80,7 @@ class MyQueueArrayType{
         int front(){
             // If queue is empty, print underflow error
             if (is_empty()){
-                cout << "Queue Underflow" << endl;
+                cout << "Queue Underflow ";
                 return -1;
             }
             return array[frontIndex];
@@ -113,42 +114,104 @@ class MyQueueArrayType{
         }
 };
 
-class MyQueueLinkedListType{
-    private:
-
+// Node class representing each element in the queue
+class QueueNode{
     public:
+        int data;       // Holds data value
+        QueueNode* next;     // Pointer to new node
+
+        // Constructor for initialization
+        QueueNode(int initialData, QueueNode* nextNode = nullptr){
+            data = initialData;
+            next = nextNode;
+        }
 };
 
+class MyQueueLinkedListType{
+    private:
+        QueueNode* frontNode;
+        QueueNode* rearNode;
+        int count;
 
-// int main(void){
-//     cout << "------> MyQueueArrayType <-------" << endl;
+    public:
+        MyQueueLinkedListType(){
+            frontNode = nullptr;
+            rearNode = nullptr;
+            count = 0;
+        }
 
-//     MyQueueArrayType queue;
+        // Enqeueu method to enqueue (add) an element into the queue
+        void enqueue(int item){
+            QueueNode* newNode = new QueueNode(item, nullptr);
+            if (frontNode == nullptr && rearNode == nullptr){
+                frontNode = newNode;
+                rearNode = newNode;
+            }
+            else{
+                rearNode->next = newNode;
+                rearNode = newNode;
+            }
+            count++;
+        }
 
-//     cout << "queue.is_empty(): " << queue.is_empty() << (queue.is_empty() ? " (True)" : " (False)") << endl;
+        // Dequeue method to dequeue (remove) and return the dequeued elemnet from the stack
+        int dequeue(){
+            if (is_empty()){
+                cout << "Queue Underflow ";
+                return -1;
+            }
+            QueueNode* temp = frontNode;
+            int value = temp->data;
+            frontNode = frontNode->next;
 
-//     queue.PrintQueue();
+            if (frontNode == nullptr){
+                rearNode = nullptr;
+            }
 
-//     queue.enqueue(2);
-//     queue.enqueue(4);
-//     queue.enqueue(6);
-//     queue.enqueue(8);
-//     queue.enqueue(10);
+            delete temp;
+            count--;
+            return value;
+        }
 
-//     queue.PrintQueue();
+        // front method to return the front (top) element without removing it
+        int front(){
+            // If queue is empty, print underflow error
+            if (is_empty()){
+                cout << "Queue Underflow ";
+                return -1;
+            }
+            return frontNode->data;
+        }
 
-//     cout << "queue.is_empty(): " << queue.is_empty() << (queue.is_empty() ? " (True)" : " (False)") << endl;
-//     cout << "queue.front(): " << queue.front() << endl;
-//     cout << "queue.size(): " << queue.size() << endl;
-    
-//     cout << "queue.dequeue(): " << queue.dequeue() << endl;
-//     cout << "queue.front(): " << queue.front() << endl;
+        // Is Empty method to chech if the queue if empty or not
+        bool is_empty(){
+            return frontNode == nullptr;
+        }
 
-//     queue.PrintQueue();
-    
-//     cout << "queue.size(): " << queue.size() << endl;
+        // Size method to return the current size of the queue
+        int size(){
+            return count;
+        }
 
-//     cout << "-------------------------------------------" << endl;
+        // PrintQueue method to print the queue elemnts
+        void PrintQueue(){
+            QueueNode* temp = frontNode;
+            cout << "Queue: [";
+            while (temp){
+                cout << temp->data;
+                if (temp->next != nullptr){
+                    cout << " -> ";
+                }
+                temp = temp->next;
+            }
+            cout << "]" << endl;
+        }
 
-//     return 0;
-// }
+        // Destructor to Free allocated memory from queue
+        ~MyQueueLinkedListType(){
+            while (!is_empty())
+            {
+                dequeue();
+            }
+        }
+};
