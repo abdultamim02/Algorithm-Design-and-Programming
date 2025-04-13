@@ -85,7 +85,13 @@ cd Introsort\ and\ Memory\ Management/
 
 ## ✅ Expected Output
 
-When you run `MyTest.cpp`, the output should look something like the output in the file:
+When you run `MyTest.cpp`, the terminal will print the following message:
+
+```
+Test Results Written to test_results.txt
+```
+
+The output should look something like the output in the file:
 
 ```
 test_results.txt
