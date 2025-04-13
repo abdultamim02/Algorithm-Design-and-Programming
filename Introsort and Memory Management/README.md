@@ -74,11 +74,11 @@ cd Introsort\ and\ Memory\ Management/
     ```
 2. Compile `MyTest.cpp` using g++:
     ```sh
-    g++ -o MyTest MyTest.cpp -std=c++11
+    g++ -std=c++11 Mytest.cpp QuickSort.cpp HeapSort.cpp InsertionSort.cpp IntroSort.cpp memory_pool.cpp swap_utils.cpp -o Mytest.exe
     ```
 3. Run the compiled program:
     ```sh
-    ./MyTest
+    ./Mytest.exe
     ```
 
 ---

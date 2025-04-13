@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "insertionSort.h"
+#include "InsertionSort.h"
 
 using namespace std;
 
